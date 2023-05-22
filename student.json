@@ -1,19 +1,12 @@
 {
-  "posts": [
+  "students": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "2",
+      "email": "2",
+      "address": "2",
+      "phone": "2",
+      "curso": "2"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
