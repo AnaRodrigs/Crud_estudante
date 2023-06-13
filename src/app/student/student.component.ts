@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -10,8 +9,8 @@ import { StudentService } from '../student.service';
 })
 export class StudentComponent {
   student : Student ={} as Student;
-  isEditing: boolean = true;
-  Students: Student[] = [];
+  isEditing: boolean = false;
+  students: Student [] = [];
 
   constructor(private studentService: StudentService){}
   
@@ -22,13 +21,12 @@ export class StudentComponent {
    loadStudents() {
      this.studentService.getStudents (). subscribe(
        {
-         next : data => this.Students = data
+         next : data => this.students = data
        }
      );
    }
  
- 
-   onSaveEVent (student : Student){
+   onSaveEvent (student : Student){
      if (this.isEditing)
      {
        this.studentService.update(student).subscribe(
@@ -44,16 +42,25 @@ export class StudentComponent {
      this.studentService.save(student).subscribe(
        {
          next : data => {
-           this.Students.push(data)
+           this.students.push(data);
  
          }
        }
      );
    }
  }
-   
-   OnCleanEvent (student : Student){
-   this.isEditing = false;
-   }
+ edit(student: Student) {
+  this.student = student;
+ this.isEditing = true;
+
  }
 
+   onCleanEvent (){
+   this.isEditing = false;
+   }
+   delete(student: Student) {
+    this.studentService.delete(student).subscribe({
+    next: () => this.loadStudents()
+      })
+ }
+}

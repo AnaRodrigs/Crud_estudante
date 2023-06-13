@@ -1,24 +1,31 @@
 <div class="container text-center  ">
-    <div class=" " >
-        <div class="">
+    <div class="container" >
+        <div class="container">
             <form [formGroup]="formGroupClient">
                 <div class="mb-2">
                     <div class="display-6">
                         Cadastro de Alunos
                     </div>
                 </div>
-
-                <div class="input-group mb-3">
+                
+                <span *ngIf="submitted && name.invalid">
+                    <small class="text-danger">Nome Inválido!</small>
+                </span>
+                <div  class="input-group mb-3"  >
                     <span class="input-group-text" id="name">Nome</span>
-                    <input type="text" id="name" formControlName="name" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="name" formControlName="name" class="form-control">
                 </div>
+
+                <span *ngIf="submitted && email.invalid">
+                    <small class="text-danger">Email Inválido!</small>
+                </span>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="email">Email </span>
-                    <input type="email" id="email" formControlName="email" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="email" id="email" formControlName="email" class="form-control">
                 </div>
+
+
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="curso">Curso </span>
                     <input type="text" id="curso" formControlName="curso" class="form-control"
@@ -37,8 +44,9 @@
                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
 
-                <div class="mb-3 d-flex justify-content-end">
-                    <button class="btn btn-primary me-2" (click)="save ()"> salvar</button>
-                    <button class="btn btn-primary" (click)="clean() ">Limpar</button>
+                <div class="mb-2  p-4 text-center " >
+                    <button class="btn btn-primary me-2 " style="width: 25%;"  (click)="save ()"> Salvar</button>
+                    <button class="btn btn-secondary"  style="width: 25%;" (click)="clean() ">Limpar</button>
 
                 </div>
+    

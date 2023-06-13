@@ -2,19 +2,11 @@
   "students": [
     {
       "id": 1,
-      "name": "2",
-      "email": "2",
-      "address": "2",
-      "phone": "2",
-      "curso": "2"
-    },
-    {
-      "id": 2,
       "name": "Ana Maria",
       "email": "maria@gmail.com",
-      "address": "av daniel Ratti",
-      "phone": "119765421",
-      "curso": "ads"
+      "address": "av Sanches",
+      "phone": "119876524",
+      "curso": "Ads"
     }
   ]
 }

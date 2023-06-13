@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -17,7 +17,7 @@ student : Student = {} as  Student;
 saveEvent = new EventEmitter<Student>();
 
 @Output()
-cleanEvent = new EventEmitter<void>();
+CleanEvent = new EventEmitter<void>();
 
 
 submitted: boolean = false;
@@ -27,8 +27,8 @@ formGroupClient: FormGroup;
     private formBuilder: FormBuilder) {
     this.formGroupClient = formBuilder.group({
       id: [''],
-      name: [''],
-      email: [''],
+      name: ['',[Validators.required]],
+      email: ['',[Validators.required, Validators.email]],
       address: [''],
       phone: [''],
       curso :['']
@@ -47,10 +47,15 @@ formGroupClient: FormGroup;
         }
   }
   clean() {
-    this.cleanEvent.emit();
+    this.CleanEvent.emit();
     this.formGroupClient.reset();
     this.submitted = false;
   }
-
+  get name(): any{
+    return this.formGroupClient.get("name");
+  }
+  get email(): any{
+    return this.formGroupClient.get("email");
+  }
 
 }

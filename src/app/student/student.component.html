@@ -1,33 +1,34 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Curso</th>
-      <th scope="col">Endreço</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Opções</th>
-    </tr>
-  </thead>
+<app-student-form [student]="student" (saveEvent)="onSaveEvent($event)" (CleanEvent)="onCleanEvent()">
+</app-student-form>
 
-  <tbody>
-    <tr *ngFor="let student of Students">
-      <th scope="row">{{student.id}}</th>
-      <td>{{student.name}}</td>
-      <td>{{student.email}}</td>
-      <td>{{student.curso}}</td>
-      <td>{{student.address}}</td>
-      <td>{{student.phone}}</td>
+<div class=" container text-center">
+  <table class="table success">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Endreço</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
 
-      <td>
-        <button class="btn btn-primary me-1" (click)="edit(student)">Editar</button>
-        <button class="btn btn-primary" (click)="delete(student)">Excluir</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</form>
-</div>
-</div>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <th scope="row">{{student.id}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.curso}}</td>
+        <td>{{student.address}}</td>
+        <td>{{student.phone}}</td>
+
+        <td>
+          <button class="btn btn-secondary  me-1 " (click)="edit(student)">Editar</button>
+          <button class="btn btn-danger  text-light" (click)="delete(student)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
