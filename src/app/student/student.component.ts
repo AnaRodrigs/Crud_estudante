@@ -9,23 +9,12 @@ import { StudentService } from '../student.service';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent {
-
-
+  student : Student ={} as Student;
+  isEditing: boolean = true;
   Students: Student[] = [];
-  isEditing: boolean = false;
-  formGroupClient: FormGroup;
 
-  constructor(private studentService: StudentService,
-    private formBuilder: FormBuilder) {
-    this.formGroupClient = formBuilder.group({
-      id: [''],
-      name: [''],
-      email: [''],
-      address: [''],
-      phone: [''],
-      curso :['']
-    });
-  }
+  constructor(private studentService: StudentService){}
+  
 
   ngOnInit(): void {
     this.loadStudents();
@@ -39,45 +28,31 @@ export class StudentComponent {
    }
  
  
-   save (){
+   onSaveEVent (student : Student){
      if (this.isEditing)
      {
-       this.studentService.update(this.formGroupClient.value).subscribe(
+       this.studentService.update(student).subscribe(
          {
            next: () => {
              this.loadStudents();
-             this.formGroupClient.reset();
              this.isEditing = false;
            }
          }
        )
      }
      else{
-     this.studentService.save(this.formGroupClient.value).subscribe(
+     this.studentService.save(student).subscribe(
        {
          next : data => {
            this.Students.push(data)
-           this.formGroupClient.reset();
  
          }
        }
-     )
+     );
    }
  }
-   edit (student : Student){
-      this.formGroupClient.setValue(student);
-      this.isEditing = true;
- 
-   }
- 
-   delete (student : Student){
-     this.studentService.delete(student).subscribe({
-       next : () => this.loadStudents()
-     })
- 
- }
-   clean (){
-   this.formGroupClient.reset();
+   
+   OnCleanEvent (student : Student){
    this.isEditing = false;
    }
  }
