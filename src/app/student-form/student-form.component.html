@@ -8,17 +8,12 @@
                     </div>
                 </div>
                 
-                <span *ngIf="submitted && name.invalid">
-                    <small class="text-danger">Nome Inválido!</small>
-                </span>
+        
                 <div  class="input-group mb-3"  >
                     <span class="input-group-text" id="name">Nome</span>
                     <input type="text" id="name" formControlName="name" class="form-control">
                 </div>
 
-                <span *ngIf="submitted && email.invalid">
-                    <small class="text-danger">Email Inválido!</small>
-                </span>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="email">Email </span>
