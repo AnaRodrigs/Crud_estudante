@@ -27,8 +27,8 @@ formGroupClient: FormGroup;
     private formBuilder: FormBuilder) {
     this.formGroupClient = formBuilder.group({
       id: [''],
-      name: ['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      email: ['',[Validators.required, Validators.email]],
+      name: [''],
+      email: ['',
       address: [''],
       phone: [''],
       curso :['']
@@ -51,11 +51,5 @@ formGroupClient: FormGroup;
     this.formGroupClient.reset();
     this.submitted = false;
   }
-  get name(): any{
-    return this.formGroupClient.get("name");
-  }
-  get email(): any{
-    return this.formGroupClient.get("email");
-  }
-
+  
 }
