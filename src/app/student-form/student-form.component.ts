@@ -37,7 +37,10 @@ formGroupStudent: FormGroup;
   } 
 
   ngOnChanges(changes: SimpleChanges): void{
-    this.formGroupStudent.setValue(this.student);
+    if(this.student.id){
+      this.formGroupStudent.setValue(this.student);
+    }
+    
   }
   save (){
     this.submitted = true;

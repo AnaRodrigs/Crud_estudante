@@ -51,7 +51,8 @@ export class StudentComponent {
  }
  edit(student: Student) {
   this.student = student;
- this.isEditing = true;
+  this.isEditing = true;
+ console.log (this.isEditing);
 
  }
 
