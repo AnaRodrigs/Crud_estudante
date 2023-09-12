@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,  } from '@angular/forms';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 
@@ -28,10 +28,10 @@ formGroupClient: FormGroup;
     this.formGroupClient = formBuilder.group({
       id: [''],
       name: [''],
-      email: ['',
+      email: [''],
       address: [''],
       phone: [''],
-      curso :['']
+      curso :[''],
     });
   } 
 
