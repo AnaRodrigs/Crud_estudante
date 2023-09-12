@@ -4,5 +4,5 @@ export interface Student {
     address : string;
     phone : number;
     email : string;
-    curso : string;
+    course : string;
   }

@@ -1,7 +1,7 @@
 <div class="container text-center  ">
     <div class="container" >
         <div class="container">
-            <form [formGroup]="formGroupClient">
+            <form [formGroup]="formGroupStudent">
                 <div class="mb-2">
                     <div class="display-6">
                         Cadastro de Alunos
@@ -11,32 +11,32 @@
         
                 <div  class="input-group mb-3"  >
                     <span class="input-group-text" id="name">Nome</span>
-                    <input type="text" id="name" formControlName="name" class="form-control">
+                    <input type="text" id="name" formControlName="name" class="form-control" name="name">
                 </div>
 
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="email">Email </span>
-                    <input type="email" id="email" formControlName="email" class="form-control">
+                    <input type="email" id="email" formControlName="email" class="form-control" name="email">
                 </div>
 
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="curso">Curso </span>
-                    <input type="text" id="curso" formControlName="curso" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <span class="input-group-text" id="course">Curso </span>
+                    <input type="text" id="curso" formControlName="course" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="course">
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="phone">Telefone </span>
                     <input type="phone" id="phone" formControlName="phone" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="phone">
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="address">Endereço </span>
                     <input type="text" id="address" formControlName="address" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="address">
                 </div>
 
                 <div class="mb-2  p-4 text-center " >

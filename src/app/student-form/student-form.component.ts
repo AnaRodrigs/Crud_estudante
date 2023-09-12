@@ -21,34 +21,34 @@ CleanEvent = new EventEmitter<void>();
 
 
 submitted: boolean = false;
-formGroupClient: FormGroup;
+formGroupStudent: FormGroup;
 
   constructor(private studentService: StudentService,
     private formBuilder: FormBuilder) {
-    this.formGroupClient = formBuilder.group({
+    this.formGroupStudent = formBuilder.group({
       id: [''],
       name: [''],
       email: [''],
       address: [''],
       phone: [''],
-      curso :[''],
+      course :[''],
     });
   } 
 
   ngOnChanges(changes: SimpleChanges): void{
-    this.formGroupClient.setValue(this.student);
+    this.formGroupStudent.setValue(this.student);
   }
   save (){
     this.submitted = true 
-    if (this.formGroupClient.valid){
-           this.saveEvent.emit(this.formGroupClient.value);
-            this.formGroupClient.reset();
+    if (this.formGroupStudent.valid){
+           this.saveEvent.emit(this.formGroupStudent.value);
+            this.formGroupStudent.reset();
             this.submitted = false
         }
   }
   clean() {
     this.CleanEvent.emit();
-    this.formGroupClient.reset();
+    this.formGroupStudent.reset();
     this.submitted = false;
   }
   
