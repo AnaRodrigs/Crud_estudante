@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { FormBuilder, FormGroup,  } from '@angular/forms';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
@@ -27,8 +28,8 @@ formGroupStudent: FormGroup;
     private formBuilder: FormBuilder) {
     this.formGroupStudent = formBuilder.group({
       id: [''],
-      name: [''],
-      email: [''],
+      name: ['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      email: ['',[Validators.required, Validators.email]],
       address: [''],
       phone: [''],
       course :[''],
@@ -39,11 +40,11 @@ formGroupStudent: FormGroup;
     this.formGroupStudent.setValue(this.student);
   }
   save (){
-    this.submitted = true 
+    this.submitted = true;
     if (this.formGroupStudent.valid){
            this.saveEvent.emit(this.formGroupStudent.value);
             this.formGroupStudent.reset();
-            this.submitted = false
+            this.submitted = false;
         }
   }
   clean() {
@@ -51,5 +52,10 @@ formGroupStudent: FormGroup;
     this.formGroupStudent.reset();
     this.submitted = false;
   }
-  
+  get name(): any{
+    return this.formGroupStudent.get('name');
+  }
+  get email(): any{
+    return this.formGroupStudent.get('email');
+  }
 }
