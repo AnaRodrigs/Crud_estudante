@@ -58,7 +58,9 @@ export class StudentComponent {
 
    onCleanEvent (){
    this.isEditing = false;
+   this.student = {} as  Student;
    }
+
    delete(student: Student) {
     this.studentService.delete(student).subscribe({
     next: () => this.loadStudents()

@@ -54,6 +54,7 @@ formGroupStudent: FormGroup;
     this.CleanEvent.emit();
     this.formGroupStudent.reset();
     this.submitted = false;
+
   }
   get name(): any{
     return this.formGroupStudent.get('name');
