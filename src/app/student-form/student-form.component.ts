@@ -31,8 +31,8 @@ export class StudentFormComponent implements OnChanges {
       name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [Validators.required, Validators.email]],
       address: ['',[Validators.required]],
-      phone: ['',[Validators.required]],
-      course: ['',[Validators.required]],
+      phone: ['',[Validators.required, Validators.pattern('^[0-9]+$')]],
+      course: ['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
     });
   }
 
