@@ -1,5 +1,5 @@
 <div class="container text-center  ">
-    <div class="container" >
+    <div class="container">
         <div class="container">
             <form [formGroup]="formGroupStudent">
                 <div class="mb-2">
@@ -7,11 +7,11 @@
                         Cadastro de Alunos
                     </div>
                 </div>
-                
+
                 <span *ngIf="submitted && name.invalid">
                     <small class="text-danger">Nome Inválido!</small>
                 </span>
-                <div  class="input-group mb-3"  >
+                <div class="input-group mb-3">
                     <span class="input-group-text" id="name">Nome</span>
                     <input type="text" id="name" formControlName="name" class="form-control" name="name">
                 </div>
@@ -24,28 +24,33 @@
                     <input type="email" id="email" formControlName="email" class="form-control" name="email">
                 </div>
 
-
+                <span *ngIf="submitted && course.invalid">
+                    <small class="text-danger">Curso Inválido!</small>
+                </span>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="course">Curso </span>
                     <input type="text" id="course" formControlName="course" class="form-control"
                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="course">
                 </div>
-
+                <span *ngIf="submitted && phone.invalid">
+                    <small class="text-danger">Telefone Inválido!</small>
+                </span>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="phone">Telefone </span>
                     <input type="phone" id="phone" formControlName="phone" class="form-control"
                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="phone">
                 </div>
-
+                <span *ngIf="submitted && address.invalid">
+                    <small class="text-danger">Endereço Inválido!</small>
+                </span>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="address">Endereço </span>
                     <input type="text" id="address" formControlName="address" class="form-control"
                         aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="address">
                 </div>
 
-                <div class="mb-2  p-4 text-center " >
-                    <button class="btn btn-primary me-2 " style="width: 25%;"  (click)="save ()"> Salvar</button>
-                    <button class="btn btn-secondary"  style="width: 25%;" (click)="clean() ">Limpar</button>
+                <div class="mb-2  p-4 text-center ">
+                    <button class="btn btn-primary me-2 " style="width: 25%;" (click)="save ()"> Salvar</button>
+                    <button class="btn btn-secondary" style="width: 25%;" (click)="clean() ">Limpar</button>
 
                 </div>
-    
